@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "ChatBridge AI",
+  title: "ApnaAI",
   description: "Next.js website interface for your db_updated.py chatbot backend"
 };
 
