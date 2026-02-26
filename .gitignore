@@ -1,0 +1,79 @@
+# =========================
+# Dependencies
+# =========================
+node_modules/
+.pnp/
+.pnp.js
+
+# =========================
+# Next.js build output
+# =========================
+.next/
+out/
+build/
+
+# =========================
+# Production
+# =========================
+dist/
+
+# =========================
+# Environment variables
+# =========================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# =========================
+# Logs
+# =========================
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Editor directories & files
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# TypeScript
+# =========================
+*.tsbuildinfo
+next-env.d.ts
+
+# =========================
+# Testing
+# =========================
+coverage/
+
+# =========================
+# Vercel
+# =========================
+.vercel/
+
+# =========================
+# Storybook
+# =========================
+storybook-static/
+
+# =========================
+# Lock files (OPTIONAL - choose one)
+# =========================
+# Uncomment ONLY if you don’t want lockfiles tracked
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
