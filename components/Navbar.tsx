@@ -60,7 +60,7 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="menu-toggle"
+          className={`menu-toggle ${menuOpen ? "open" : ""}`}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
           aria-controls="main-navigation"

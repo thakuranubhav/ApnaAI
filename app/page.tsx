@@ -50,21 +50,22 @@ export default function HomePage() {
           <li>Integrated web search, stock APIs, and calculator tools with dynamic routing via LangGraph.</li>
           <li>Thread-based chat sessions powered by checkpointing architecture.</li>
           <li>Separated frontend and backend architecture for production deployment.</li>
+          <li>Agentic reasoning helps the chatbot choose the right tool path based on your query intent.</li>
+          <li>Context-aware follow-ups let the assistant continue multi-step tasks without losing conversation state.</li>
         </ul>
       </article>
 
       <article className="info-card info-card-implementation">
-        <h3>Implementation Snapshot</h3>
+        <h3>Tool Calling in Action</h3>
         <p className="info-note">
-          ApnaAI combines a production-ready Next.js interface with a tool-orchestrated assistant backend for fast,
-          <span className="mobile-hide-inline"> practical responses.</span>
+          Ask real-world questions and the assistant can route to tools like web search, calculator, and stock fetch
+          to generate practical answers.
         </p>
         <ul>
-          <li>LangGraph orchestrates tool-selection and response generation.</li>
-          <li>Backend handles APIs and checkpoints, frontend focuses on UX and chat flow.</li>
-          <li>Each thread maintains contextual memory for reliable, multi-step conversations.</li>
-          <li className="mobile-hide-item">Authentication, chat sessions, and contact flows are modular for easier scaling.</li>
-          <li className="mobile-hide-item">Real tool integrations keep answers actionable instead of generic text output.</li>
+          <li>Example: "What is Tesla stock price and 15% of that?" uses stock + calculator tools in one flow.</li>
+          <li>Example: "Find top AI news today and summarize in 5 points" triggers web-search tool calling.</li>
+          <li>You can chat in multiple languages: English, Hindi, Chinese, Spanish, and German.</li>
+          <li className="mobile-hide-item">Tool-calling keeps responses actionable instead of generic text output.</li>
         </ul>
       </article>
     </section>
