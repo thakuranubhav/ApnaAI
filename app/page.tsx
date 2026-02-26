@@ -24,19 +24,19 @@ export default function HomePage() {
             {authorized ? (
               <>
                 <Link href="/chat" className="primary-btn link-btn hero-launch-btn">
-                  Launch Chat
+                  Start Chat
                 </Link>
                 <Link href="/contact" className="ghost-btn link-btn">
-                  Contact
+                  Contact Us
                 </Link>
               </>
             ) : (
               <>
-                <Link href="/login" className="ghost-btn link-btn">
-                  Login
+                <Link href="/chat" className="primary-btn link-btn hero-launch-btn">
+                  Start Chat
                 </Link>
-                <Link href="/signup" className="primary-btn link-btn">
-                  Sign Up
+                <Link href="/contact" className="ghost-btn link-btn">
+                  Contact Us
                 </Link>
               </>
             )}
@@ -57,14 +57,14 @@ export default function HomePage() {
         <h3>Implementation Snapshot</h3>
         <p className="info-note">
           ApnaAI combines a production-ready Next.js interface with a tool-orchestrated assistant backend for fast,
-          practical responses.
+          <span className="mobile-hide-inline"> practical responses.</span>
         </p>
         <ul>
           <li>LangGraph orchestrates tool-selection and response generation.</li>
           <li>Backend handles APIs and checkpoints, frontend focuses on UX and chat flow.</li>
           <li>Each thread maintains contextual memory for reliable, multi-step conversations.</li>
-          <li>Authentication, chat sessions, and contact flows are modular for easier scaling.</li>
-          <li>Real tool integrations keep answers actionable instead of generic text output.</li>
+          <li className="mobile-hide-item">Authentication, chat sessions, and contact flows are modular for easier scaling.</li>
+          <li className="mobile-hide-item">Real tool integrations keep answers actionable instead of generic text output.</li>
         </ul>
       </article>
     </section>

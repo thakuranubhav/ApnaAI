@@ -5,7 +5,11 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { AuthUser } from "@/types/chat";
 
-const publicNavItems = [{ href: "/", label: "Home" }];
+const publicNavItems = [
+  { href: "/", label: "Home" },
+  { href: "/chat", label: "Chat" },
+  { href: "/contact", label: "Contact Us" }
+];
 const privateNavItems = [
   { href: "/", label: "Home" },
   { href: "/chat", label: "Chat" },
@@ -16,6 +20,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
   const [user, setUser] = useState<AuthUser | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const raw = localStorage.getItem("auth_user");
@@ -32,11 +37,16 @@ export default function Navbar() {
     }
   }, [pathname]);
 
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
   const navItems = useMemo(() => (user ? privateNavItems : publicNavItems), [user]);
 
   function handleLogout() {
     localStorage.removeItem("auth_user");
     setUser(null);
+    setMenuOpen(false);
     router.push("/");
   }
 
@@ -48,7 +58,20 @@ export default function Navbar() {
           <span className="logo-text">ApnaAI</span>
         </Link>
 
-        <nav className="site-nav" aria-label="Main navigation">
+        <button
+          type="button"
+          className="menu-toggle"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          aria-controls="main-navigation"
+          onClick={() => setMenuOpen((prev) => !prev)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+
+        <nav id="main-navigation" className={`site-nav ${menuOpen ? "open" : ""}`} aria-label="Main navigation">
           {user && (
             <span className="nav-user" title={user.email}>
               {(user.name?.trim()?.[0] ?? "U").toUpperCase()}
@@ -58,7 +81,12 @@ export default function Navbar() {
           {navItems.map((item) => {
             const isActive = pathname === item.href;
             return (
-              <Link key={item.href} href={item.href} className={`nav-link ${isActive ? "active" : ""}`}>
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`nav-link ${isActive ? "active" : ""}`}
+                onClick={() => setMenuOpen(false)}
+              >
                 {item.label}
               </Link>
             );
@@ -70,15 +98,14 @@ export default function Navbar() {
             </button>
           ) : (
             <div className="auth-actions">
-              <Link href="/login" className="ghost-btn link-btn">
+              <Link href="/login" className="ghost-btn link-btn" onClick={() => setMenuOpen(false)}>
                 Login
-              </Link>
-              <Link href="/signup" className="primary-btn link-btn">
-                Sign Up
               </Link>
             </div>
           )}
         </nav>
+
+        {menuOpen && <button className="menu-backdrop" type="button" aria-label="Close menu" onClick={() => setMenuOpen(false)} />}
       </div>
     </header>
   );
