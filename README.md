@@ -1,41 +1,73 @@
-# Chatbot Stack (db_updated.py + Next.js)
+🤖 AI Chatbot Platform with Tool Calling
 
-This repo now has:
-- `db_updated.py`: LangGraph chatbot logic (existing)
-- `api_server.py`: FastAPI wrapper over `db_updated.py`
-- `nextjs-chat-ui/`: Next.js web interface
+An advanced AI-powered chatbot built using Hugging Face open-source models that supports intelligent tool calling, enabling real-time actions like stock price prediction, DuckDuckGo search, calculator operations, and more.
 
-## 1) Start Python backend
+🚀 Features
 
-```powershell
-pip install -r requirements.txt
-uvicorn api_server:app --host 0.0.0.0 --port 8000 --reload
-```
+🧠 Powered by Hugging Face Open-Source LLMs
 
-Backend endpoints:
-- `GET /health`
-- `GET /threads`
-- `POST /threads`
-- `GET /threads/{thread_id}/messages`
-- `POST /chat`
+🔧 Tool Calling / Function Calling Support
 
-## 2) Start Next.js frontend
+📈 Stock Price Prediction
 
-```powershell
-cd nextjs-chat-ui
-copy .env.local.example .env.local
-npm install
-npm run dev
-```
+🔎 DuckDuckGo Web Search Integration
 
-Open `http://localhost:3000`.
+🧮 Built-in Calculator
 
-## 3) Backend URL
+⚡ Extensible Tool Architecture
 
-Frontend reads `NEXT_PUBLIC_API_BASE_URL` and `NEXT_PUBLIC_AUTH_API_BASE_URL` from `nextjs-chat-ui/.env.local`.
-Defaults are:
+💬 Real-time Interactive Chat UI
 
-```env
-NEXT_PUBLIC_API_BASE_URL=http://127.0.0.1:8000
-NEXT_PUBLIC_AUTH_API_BASE_URL=https://auth-api-chatbot.onrender.com
-```
+🌐 Production-ready Deployment
+
+🏗️ Tech Stack
+Frontend
+
+Next.js
+
+React.js
+
+Tailwind CSS
+
+Backend
+
+FastAPI / Node.js (if applicable)
+
+LangChain / LangGraph (if used)
+
+Hugging Face Inference API / Open Source Models
+
+MongoDB / Database (if used)
+
+AI Models
+
+Hugging Face Open-Source LLMs
+
+Function / Tool Calling Architecture
+
+🛠️ Supported Tools
+📈 Stock Price Prediction
+
+Fetches stock data
+
+Performs analysis/predictions
+
+Returns insights in conversational format
+
+🔎 DuckDuckGo Search
+
+Real-time web search
+
+Retrieves summarized answers
+
+Source-aware responses
+
+🧮 Calculator
+
+Handles mathematical expressions
+
+Performs dynamic computations inside chat
+
+➕ More Tools
+
+The architecture is modular — new tools can be added easily by registering new functions in the tool handler.
